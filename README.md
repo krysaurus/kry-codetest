@@ -39,7 +39,7 @@ MYSQL_PASSWORD=<password>
 ```
 
 ```
-cd server && gradle build
+cd server && ./gradlew build
 ```
 
 # Running the applications

@@ -5,7 +5,7 @@ Code test for Kry by Jonas Lundholm
 
 - Java 11
 - Gradle 6.9
-- Docker & Docker Compose
+- Docker (20.0.0 >=) || Docker Compose
 - Yarn
 
 # Components
@@ -38,25 +38,6 @@ MYSQL_USER=user
 MYSQL_PASSWORD=<password>
 ```
 
-```
-cd server && ./gradlew build
-```
-
-# Running the applications
-
-```
-
-In the root folder, run docker-compose up -d (docker compose up will also work in more recent versions)
-```
-
-In poller-client root folder, copy and paste .env file with value of server host.
-
-.env
-
-```
-REACT_APP_API_HOST=http://localhost:8081
-```
-
 In server/src/main/resources/application.yml, copy and paste
 
 application.yml
@@ -68,6 +49,38 @@ spring:
     username: <username from .env>
     password: <password from .env>
     driver-class-name: com.mysql.jdbc.Driver
+
+```
+
+The MySQL Docker image is weird, so for the account to "activate" and the server to
+be able to start using it you need to log in to the account once.
+
+```
+docker exec -i mysql /bin/bash
+mysql -u <username from .env> -p
+PROMPT: <password from .env>
+```
+
+In poller-client root folder, copy and paste .env file with value of server host.
+
+.env
+
+```
+REACT_APP_API_HOST=http://localhost:8081
+```
+
+cd server && ./gradlew build
+
+```
+
+# Running the applications
+
+```
+
+In the root folder, run docker-compose up -d (docker compose up will also work in more recent versions)
+
+```
+
 
 In root folder, run
 docker-compose up -d

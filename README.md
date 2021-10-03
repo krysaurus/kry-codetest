@@ -8,7 +8,7 @@ Code test for Kry by Jonas Lundholm
 - Docker & Docker Compose
 - Yarn
 
-#Components
+# Components
 
 ### server
 
@@ -27,7 +27,8 @@ Initial SQL that will be run on upstart of MySQL
 A local node.js server used to simulate behavior with slow connections. Accepts
 requests on localhost:3000 within the docker network and takes 10 seconds to respond.
 
-#Building the application
+# Building the application
+
 Create a .env file in the root folder, it should have the following properties
 
 ```
@@ -41,7 +42,7 @@ MYSQL_PASSWORD=<password>
 cd server && gradle build
 ```
 
-#Running the applications
+# Running the applications
 
 ```
 
@@ -78,7 +79,7 @@ cd poller-client && yarn && yarn start
 poller-client is accessible on port 3000
 server is accessible on port 8080 through Docker
 
-#What I would have done with more time
+# What I would have done with more time
 
 ```
 Add Makefile for building the different projects

@@ -1,4 +1,5 @@
-#Kry Codetest
+# Kry Codetest
+
 Code test for Kry by Jonas Lundholm
 
 ## Dependencies
@@ -49,6 +50,12 @@ spring:
     username: <username from .env>
     password: <password from .env>
     driver-class-name: com.mysql.jdbc.Driver
+```
+
+In root folder, copy and paste
+
+```
+cd server && ./gradlew build
 
 ```
 
@@ -56,9 +63,7 @@ The MySQL Docker image is weird, so for the account to "activate" and the server
 be able to start using it you need to log in to the account once.
 
 ```
-docker exec -i mysql /bin/bash
-mysql -u <username from .env> -p
-PROMPT: <password from .env>
+docker exec -i mysql mysql -u<username from .env> -p<password from .env>
 ```
 
 In poller-client root folder, copy and paste .env file with value of server host.
@@ -67,11 +72,7 @@ In poller-client root folder, copy and paste .env file with value of server host
 
 ```
 REACT_APP_API_HOST=http://localhost:8081
-```
 
-cd server && ./gradlew build
-
-```
 
 # Running the applications
 
